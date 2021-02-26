@@ -1,0 +1,87 @@
+﻿@model IEnumerable<LinkMasters.Models.Link>
+@{
+    ViewData["Title"] = "Handy";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<div class="container-fluid2">
+    <div class="row">
+        @foreach (var item in Model)
+        {
+            <div class="handy-link">
+                <div class="thumbex3">
+                    <div class="thumbnail3">
+                        @if (item.ApplicationId == 6 || item.ApplicationId == 9)
+                        {
+                            @if (item.ImageId != null)
+                            {
+                                <a target="_blank" href="@item.Url"><img src="@Url.Content(item.Image.ImagePath)" /><span class="image-title">@item.Nickname</span></a>
+
+                            }
+                            else
+                            {
+                                <a target="_blank" href="@item.Url"><img src="@Url.Content("~/Images/Default/Default.jpg")" /><span class="image-title">@item.Nickname</span></a>
+
+                            }
+
+                        }
+                        else
+                        {
+                            @if (item.ImageId != null)
+                            {
+                                if (item.Url != null)
+                                {
+                                    <a href="@item.Url"><img src="@Url.Content(item.Image.ImagePath)" /><span class="image-title">@item.Nickname</span></a>
+
+                                }
+                                else
+                                {
+                                    <a href="@Url.Action("OpenFile", "Links", new { id = item.Id})"><img src="@Url.Content(item.Image.ImagePath)" /><span class="image-title">@item.Nickname</span></a>
+
+                                }
+
+                            }
+                            else
+                            {
+                                if (item.Url != null)
+                                {
+                                    <a href="@item.Url"><img src="@Url.Content("~/Images/Default/Default.jpg")" /><span class="image-title">@item.Nickname</span></a>
+
+                                }
+                                else
+                                {
+                                    <a href="@Url.Action("OpenFile", "Links", new { id = item.Id })"><img src="@Url.Content("~/Images/Default/Default.jpg")" /><span class="image-title">@item.Nickname</span></a>
+
+                                }
+                            }
+
+                        }
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+</div>
+
+@section Scripts{
+    <script>
+        $(document).ready(function () {
+            $('#all').removeClass('active');
+            if ('@ViewBag.ApplicationName' == 'JQUIP') {
+                $('#jquip').addClass('active');
+            }
+            else if ('@ViewBag.ApplicationName' == 'JCIMS') {
+                $('#jcims').addClass('active');
+            }
+            else if ('@ViewBag.ApplicationName' == 'JUMS') {
+                $('#jums').addClass('active');
+            }
+
+
+
+        })
+    </script>
+}
+
+

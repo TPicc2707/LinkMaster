@@ -1,0 +1,9 @@
+﻿<div class="portfolio-menu jrotc-buttons">
+    <ul>
+        <li class="btn btn-outline-dark active" id="all" data-filter="*"><a asp-action="JROTC" asp-controller="Links" class="button-link">All</a></li>
+        <li class="btn btn-outline-dark" id="jquip" data-filter=".gts"><a asp-action="SpecificLinks" asp-controller="Links" asp-route-applicationId="1" class="button-link">JQUIP</a></li>
+        <li class="btn btn-outline-dark" id="jcims" data-filter=".lap"><a asp-action="SpecificLinks" asp-controller="Links" asp-route-applicationId="2" class="button-link">JCIMS</a></li>
+        <li class="btn btn-outline-dark text" id="jums" data-filter=".selfie"><a asp-action="SpecificLinks" asp-controller="Links" asp-route-applicationId="3" class="button-link">JUMS</a></li>
+        <li class="btn btn-outline-dark text" id="localhost" data-filter=".selfie"><a asp-action="SpecificLinks" asp-controller="Links" asp-route-applicationId="12" class="button-link">Localhost</a></li>
+    </ul>
+</div>

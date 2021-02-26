@@ -1,0 +1,91 @@
+﻿@model LinkMasters.Models.Budget
+@{
+    ViewData["Title"] = "CreateExpense";
+    Layout = "~/Views/Shared/_BudgetLayout.cshtml";
+}
+
+<div class="row">
+    <div class="col-md-4 create-expense">
+        <form asp-action="Create Expense" class="expense-form">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div style="text-align: center;"><h3>New Expense</h3></div>
+            <div class="form-group">
+                <label class="control-label">Name</label>
+                <select id="person-dd" disabled="disabled" asp-for="PersonGuid" class="form-control" asp-items="ViewBag.PersonId"></select>
+            </div>
+            <div class="form-group">
+                <label asp-for="Expense" class="control-label"></label>
+                <input asp-for="Expense" class="form-control" id="expense"/>
+                <span asp-validation-for="Expense" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Place" class="control-label"></label>
+                <input asp-for="Place" class="form-control" id="place"/>
+                <span asp-validation-for="Place" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Cost" class="control-label"></label>
+                <input asp-for="Cost" class="form-control" id="cost"/>
+                <span asp-validation-for="Cost" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label class="control-label">Day of the Month</label>
+                <select asp-for="DayId" class="form-control" asp-items="ViewBag.DayId"></select>
+
+            </div>
+            @*<div class="form-group">
+                    <label asp-for="Allowance" class="control-label"></label>
+                    <input asp-for="Allowance" class="form-control" />
+                    <span asp-validation-for="Allowance" class="text-danger"></span>
+                </div>*@
+            @*<div class="form-group">
+                    <label asp-for="DayOfMonth" class="control-label"></label>
+                    <input asp-for="DayOfMonth" class="form-control" />
+                    <span asp-validation-for="DayOfMonth" class="text-danger"></span>
+                </div>*@
+            <div class="form-group">
+                <label class="control-label">Month</label>
+                <select id="month-dd" disabled="disabled" asp-for="CalendarId" class="form-control" asp-items="ViewBag.CalendarId"></select>
+            </div>
+
+            <div class="form-group" style="padding-top: 20px;">
+                <input type="submit" value="Create Expense" class="btn btn-primary" id="create-expense"/> <a class="btn btn-primary" style="float: right;" asp-action="MonthlyBudget" asp-route-personGuid="@ViewBag.PersonGuid">Cancel</a>
+            </div>
+        </form>
+    </div>
+</div>
+
+@section Scripts{ 
+    <script>
+        $(document).ready(function () {
+            var date = new Date();
+            var month = date.getMonth() + 1;
+            if (month == 2) {
+                $("#DayId option[value=" + 29 + "]").wrap("<span/>");
+                $("#DayId option[value=" + 30 + "]").wrap("<span/>");
+                $("#DayId option[value=" + 31 + "]").wrap("<span/>");
+            }
+            else if (month == 4 || month == 6 || month == 9 || month == 11) {
+                $("#DayId option[value=" + 31 + "]").wrap("<span/>");
+            }
+        })
+        $("#cost").on("keypress keyup blur", function (event) {
+            //this.value = this.value.replace(/[^0-9\.]/g,'');
+            $(this).val($(this).val().replace(/[^0-9\.]/g, ''));
+            if ((event.which != 46 || $(this).val().indexOf('.') != -1) && (event.which < 48 || event.which > 57)) {
+                event.preventDefault();
+            }
+        });
+
+        $("#create-expense").click(function () {
+            $("#person-dd").removeAttr("disabled");
+            $("#month-dd").removeAttr("disabled");
+
+            if (($("#expense").val() == "") || ($("#place").val() == "") || ($("#cost").val() == "")) {
+                alert("Please enter a valid expense");
+            }
+        })
+
+    </script>
+}
+

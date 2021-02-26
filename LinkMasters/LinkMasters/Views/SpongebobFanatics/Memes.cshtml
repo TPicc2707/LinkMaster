@@ -1,0 +1,22 @@
+﻿@model IEnumerable<LinkMasters.Models.SpongebobMeme>
+@{
+    ViewData["Title"] = "Memes";
+    Layout = "~/Views/Shared/_SpongebobLayout.cshtml";
+}
+
+<div class="container-fluid2">
+    <h1 class="header" style="text-align: center; color: white; padding-top: 25px; padding-left: 450px;">SpongeBob SquarePants Memes</h1>
+    <div class="row">
+        @foreach (var item in Model)
+        {
+            <div class="handy-link">
+                <div class="thumbex3">
+                    <div class="thumbnail3">
+                        <a target="_blank" href="#"><img src="@Url.Content(item.Url)" />@*<span class="image-title"></span>*@</a>
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+</div>
+

@@ -1,0 +1,958 @@
+﻿/* Please see documentation at https://docs.microsoft.com/aspnet/core/client-side/bundling-and-minification
+for details on configuring this project to bundle and minify static web assets. */
+
+a.navbar-brand {
+  white-space: normal;
+  text-align: center;
+  word-break: break-all;
+}
+
+/* Sticky footer styles
+-------------------------------------------------- */
+html {
+  font-size: 14px;
+}
+@media (min-width: 768px) {
+  html {
+    font-size: 16px;
+  }
+}
+
+.border-top {
+  border-top: 1px solid #e5e5e5;
+}
+.border-bottom {
+  border-bottom: 1px solid #e5e5e5;
+}
+
+.box-shadow {
+  box-shadow: 0 .25rem .75rem rgba(0, 0, 0, .05);
+}
+
+button.accept-policy {
+  font-size: 1rem;
+  line-height: inherit;
+}
+
+/* Sticky footer styles
+-------------------------------------------------- */
+html {
+  position: relative;
+  min-height: 100%;
+}
+
+body {
+  /* Margin bottom by footer height */
+  margin-bottom: 60px;
+}
+.footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  white-space: nowrap;
+  /* Set the fixed height of the footer here */
+  height: 60px;
+  line-height: 60px; /* Vertically center the text there */
+}
+
+.container-fluid {
+    display: table;
+    flex-wrap: wrap;
+    flex-direction: row;
+    clear: both;
+    padding: 0px;
+    -webkit-animation: fadein 2s; /* Safari, Chrome and Opera > 12.1 */
+    -moz-animation: fadein 2s; /* Firefox < 16 */
+    -ms-animation: fadein 2s; /* Internet Explorer */
+    -o-animation: fadein 2s; /* Opera < 12.1 */
+    animation: fadein 2s;
+}
+
+@keyframes fadein{
+    from{opacity: 0}
+    to{opacity: 1}
+}
+
+@-moz-keyframes fadein {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+/* Safari, Chrome and Opera > 12.1 */
+@-webkit-keyframes fadein {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+/* Internet Explorer */
+@-ms-keyframes fadein {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+
+    .container-fluid .thumbex {
+        min-width: 250px;
+        max-width: 435px;
+        height: 860px;
+        width: 875px;
+        -webkit-flex: 1;
+        -ms-flex: 1;
+        flex: 1;
+        overflow: hidden;
+        outline: 2px solid white;
+        outline-offset: -15px;
+        box-shadow: 5px 10px 40px 5px rgba(0, 0, 0, 0.5);
+    }
+
+.container .thumbex .thumbnail {
+    overflow: hidden;
+    min-width: 250px;
+    height: 860px;
+    position: relative;
+    backface-visibility: hidden;
+    transition: all 0.4s ease-out;
+}
+
+    .container .thumbex .thumbnail img {
+        position: absolute;
+        z-index: 1;
+        left: 50%;
+        top: 50%;
+        height: 860px;
+        width: 105%;
+        transform: translate(-50%, -50%);
+        backface-visibility: hidden;
+        opacity: 0.88;
+        background-color: white;
+    }
+
+    .container .thumbex .thumbnail span {
+        position: absolute;
+        z-index: 2;
+        top: calc(350px - 20px);
+        left: 0;
+        right: 0;
+        background: rgba(0, 0, 0, 0.7);
+        padding: 10px 50px;
+        margin: 0 45px;
+        text-align: center;
+        font-size: 24px;
+        color: white;
+        font-weight: 300;
+        font-family: "Raleway", sans-serif;
+        letter-spacing: 0.2px;
+        transition: all 0.3s ease-out;
+    }
+
+    .container .thumbex .thumbnail:hover {
+        backface-visibility: hidden;
+        transform: scale(1.15, 1.15);
+        opacity: 1;
+        animation: shake 0.5s;
+        animation-iteration-count: infinite;
+    }
+
+        .container .thumbex .thumbnail:hover span {
+            opacity: 0;
+        }
+
+.column{
+    width: 33.3%;
+    padding-top: 20px;
+    padding-right: 50px;
+    padding-left: 100px;
+    height: 850px;
+}
+
+.row:after{
+    content: "";
+    display: table;
+    clear: both;
+}
+
+@media (max-width: 1440px){
+    .container-fluid .thumbex {
+        width: auto;
+    }
+
+    .column {
+        width: 33.3%;
+        padding-top: 20px;
+        padding-right: 20px;
+        padding-left: 20px;
+        height: 850px;
+    }
+
+    .column1 {
+        padding-right: 20px;
+        padding-left: 60px !important;
+    }
+
+
+    .jrotc-buttons {
+        padding-right: 465px !important;
+        float: right;
+    }
+
+    .specific-link {
+        padding-left: 250px !important;
+    }
+
+    .handy-link {
+        width: 50%;
+        padding-top: 20px;
+        height: 100%;
+        padding-right: 175px;
+    }
+
+}
+
+@media (max-width: 1366px) {
+
+    .column {
+        width: 33.3%;
+        padding-top: 20px;
+        height: 850px;
+    }
+
+    .column1 {
+        width: 20%;
+        padding-top: 20px;
+        height: 100%;
+    }
+}
+
+
+@media (max-width: 768px){
+   .column{
+       width: 100%;
+       padding-right: 0px;
+       padding-top: 10px;
+       padding-left: 0px;
+   } 
+}
+
+.jrotc-buttons {
+    padding-top: 30px;
+    padding-bottom: 30px;
+    float: right;
+    padding-right: 350px;
+}
+
+.button-link{
+    text-decoration: none;
+    color: white;
+}
+
+.button-link:hover{
+    color: white;
+}
+
+active{
+    color: white !important;
+}
+
+.container-fluid1 {
+    display: table;
+    flex-wrap: wrap;
+    flex-direction: row;
+    clear: both;
+    -webkit-animation: fadein 2s; /* Safari, Chrome and Opera > 12.1 */
+    -moz-animation: fadein 2s; /* Firefox < 16 */
+    -ms-animation: fadein 2s; /* Internet Explorer */
+    -o-animation: fadein 2s; /* Opera < 12.1 */
+    animation: fadein 2s;
+}
+
+    .container-fluid1 .thumbex1 {
+        width: 100%;
+        float: left;
+        min-width: 250px;
+        max-width: 435px;
+        height: 300px;
+        -webkit-flex: 1;
+        -ms-flex: 1;
+        flex: 1;
+        overflow: hidden;
+        outline: 2px solid white;
+        outline-offset: -15px;
+        box-shadow: 5px 10px 40px 5px rgba(0, 0, 0, 0.5);
+    }
+
+.container .thumbex1 .thumbnail1 {
+    overflow: hidden;
+    min-width: 250px;
+    height: 300px;
+    position: relative;
+    opacity: 0.88;
+    backface-visibility: hidden;
+    transition: all 0.4s ease-out;
+}
+
+    .container .thumbex1 .thumbnail1 img {
+        position: absolute;
+        z-index: 1;
+        left: 50%;
+        top: 50%;
+        height: 115%;
+        width: 105%;
+        transform: translate(-50%, -50%);
+        backface-visibility: hidden;
+        background-color: white;
+    }
+
+    .container .thumbex1 .thumbnail1 span {
+        position: absolute;
+        z-index: 2;
+        top: calc(150px - 20px);
+        left: 0;
+        right: 0;
+        background: rgba(0, 0, 0, 0.7);
+        padding: 10px 50px;
+        margin: 0 45px;
+        text-align: center;
+        font-size: 24px;
+        color: white;
+        font-weight: 300;
+        font-family: "Raleway", sans-serif;
+        letter-spacing: 0.2px;
+        transition: all 0.3s ease-out;
+    }
+
+    .container .thumbex1 .thumbnail1:hover {
+        backface-visibility: hidden;
+        transform: scale(1.15, 1.15);
+        opacity: 1;
+        animation: shake 0.5s;
+        animation-iteration-count: infinite;
+    }
+
+        .container .thumbex1 .thumbnail1:hover span {
+            opacity: 0;
+        }
+
+.column1 {
+    width: 20%;
+    padding-top: 20px;
+    padding-left: 180px;
+    height: 100%;
+}
+
+.specific-link {
+    width: 33%;
+    padding-top: 20px;
+    padding-left: 425px;
+    height: 100%;
+}
+
+.container-fluid1 .thumbex2 {
+    width: 400px;
+    float: left;
+    min-width: 250px;
+    max-width: 435px;
+    height: 400px;
+    -webkit-flex: 1;
+    -ms-flex: 1;
+    flex: 1;
+    overflow: hidden;
+    outline: 2px solid white;
+    outline-offset: -15px;
+    box-shadow: 5px 10px 40px 5px rgba(0, 0, 0, 0.5);
+}
+
+.container .thumbex2 .thumbnail2 {
+    overflow: hidden;
+    min-width: 250px;
+    height: 400px;
+    position: relative;
+    opacity: 0.88;
+    backface-visibility: hidden;
+    transition: all 0.4s ease-out;
+}
+
+    .container .thumbex2 .thumbnail2 img {
+        position: absolute;
+        z-index: 1;
+        left: 50%;
+        top: 50%;
+        height: 115%;
+        width: 105%;
+        transform: translate(-50%, -50%);
+        backface-visibility: hidden;
+        background-color: white;
+    }
+
+    .container .thumbex2 .thumbnail2 span {
+        position: absolute;
+        z-index: 2;
+        top: calc(150px - 20px);
+        left: 0;
+        right: 0;
+        background: rgba(0, 0, 0, 0.7);
+        padding: 10px 50px;
+        margin: 0 45px;
+        text-align: center;
+        font-size: 24px;
+        color: white;
+        font-weight: 300;
+        font-family: "Raleway", sans-serif;
+        letter-spacing: 0.2px;
+        transition: all 0.3s ease-out;
+    }
+
+    .container .thumbex2 .thumbnail2:hover {
+        backface-visibility: hidden;
+        transform: scale(1.15, 1.15);
+        opacity: 1;
+        animation: shake 0.5s;
+        animation-iteration-count: infinite;
+    }
+
+        .container .thumbex2 .thumbnail2:hover span {
+            opacity: 0;
+        }
+
+.container-fluid2 {
+    flex-wrap: wrap;
+    flex-direction: row;
+    clear: both;
+    -webkit-animation: fadein 2s; /* Safari, Chrome and Opera > 12.1 */
+    -moz-animation: fadein 2s; /* Firefox < 16 */
+    -ms-animation: fadein 2s; /* Internet Explorer */
+    -o-animation: fadein 2s; /* Opera < 12.1 */
+    animation: fadein 2s;
+}
+
+.handy-link {
+    width: 50%;
+    padding-top: 20px;
+    height: 100%;
+}
+
+.container-fluid2 .thumbex3 {
+    width: 300px;
+    float: right;
+    min-width: 250px;
+    max-width: 435px;
+    height: 200px;
+    -webkit-flex: 1;
+    -ms-flex: 1;
+    flex: 1;
+    overflow: hidden;
+    outline: 2px solid white;
+    outline-offset: -15px;
+    box-shadow: 5px 10px 40px 5px rgba(0, 0, 0, 0.5);
+}
+
+.container .thumbex3 .thumbnail3 {
+    overflow: hidden;
+    min-width: 250px;
+    height: 200px;
+    position: relative;
+    opacity: 0.88;
+    backface-visibility: hidden;
+    transition: all 0.4s ease-out;
+}
+
+    .container .thumbex3 .thumbnail3 img {
+        position: absolute;
+        z-index: 1;
+        left: 50%;
+        top: 50%;
+        height: 100%;
+        width: 105%;
+        transform: translate(-50%, -50%);
+        backface-visibility: hidden;
+        background-color: white;
+    }
+
+    .container .thumbex3 .thumbnail3 span {
+        position: absolute;
+        z-index: 2;
+        top: calc(100px - 20px);
+        left: 0;
+        right: 0;
+        background: rgba(0, 0, 0, 0.7);
+        padding: 10px 50px;
+        margin: 0 45px;
+        text-align: center;
+        font-size: 24px;
+        color: white;
+        font-weight: 300;
+        font-family: "Raleway", sans-serif;
+        letter-spacing: 0.2px;
+        transition: all 0.3s ease-out;
+    }
+
+    .container .thumbex3 .thumbnail3:hover {
+        backface-visibility: hidden;
+        transform: scale(1.15, 1.15);
+        opacity: 1;
+        animation: shake 0.5s;
+        animation-iteration-count: infinite;
+    }
+
+        .container .thumbex2 .thumbnail2:hover span {
+            opacity: 0;
+        }
+
+
+@keyframes shake {
+    0% {
+        transform: translate(1px, 1px) rotate(0deg);
+    }
+    10% {
+        transform: translate(-1px, -2px) rotate(-1deg);
+    }
+    20% {
+        transform: translate(-3px, 0px) rotate(1deg);
+    }
+    30% {
+        transform: translate(3px, 2px) rotate(0deg);
+    }
+    40% {
+        transform: translate(1px, -1px) rotate(1deg);
+    }
+    50% {
+        transform: translate(-1px, 2px) rotate(-1deg);
+    }
+    60% {
+        transform: translate(-3px, 1px) rotate(0deg);
+    }
+    70% {
+        transform: translate(3px, 1px) rotate(-1deg);
+    }
+    80% {
+        transform: translate(-1px, -1px) rotate(1deg);
+    }
+    90% {
+        transform: translate(1px, 2px) rotate(0deg);
+    }
+    100% {
+        transform: translate(1px, -2px) rotate(-1deg);
+    }
+}
+
+.title{
+    color: white;
+}
+
+.budget-div{
+    padding-top: 100px;
+    padding-bottom: 100px;
+    float: right;
+    padding-left: 10px;
+}
+
+@media (max-width: 1440px) {
+    .budget-div {
+        padding-top: 100px;
+        float: right;
+        padding-left: 0px;
+        padding-right: 300px;
+    }
+}
+
+.budget-table {
+    width: 100%;
+    border-collapse: collapse;
+    -webkit-animation: fadein 2s; /* Safari, Chrome and Opera > 12.1 */
+    -moz-animation: fadein 2s; /* Firefox < 16 */
+    -ms-animation: fadein 2s; /* Internet Explorer */
+    -o-animation: fadein 2s; /* Opera < 12.1 */
+    animation: fadein 2s;
+}
+
+.budget-tr {
+    background: #eee;
+}
+
+.budget-th {
+    background: #009900;
+    color: white;
+}
+
+.budget-td, .budget-th {
+    padding: 6px;
+    border: 1px solid #ccc;
+    text-align: left;
+}
+
+.budget-action-td {
+    border: 1px solid #ccc;
+    text-align: left;
+}
+
+@media only screen and (max-width: 760px), (min-device-width: 768px) and (max-device-width: 1024) {
+
+    .budget-table, .budget-head, .budget-body, .budget-th, .budget-td, .budget-tr {
+        display: block;
+    }
+
+        .budget-head .budget-tr {
+            position: absolute;
+            top: -9999px;
+            left: -9999px;
+        }
+
+    .budget-tr {
+        border: 1px solid #ccc
+    }
+
+    .budget-td {
+        border: none;
+        border-bottom: 1px solid #eee;
+        position: relative;
+        padding-left: 50%;
+    }
+
+    .budget-action-td {
+        border: none;
+        border-bottom: 1px solid #eee;
+        position: relative;
+        padding-left: 50%;
+    }
+
+   .budget-action-td:before {
+            position: absolute;
+            top: 6px;
+            left: 6px;
+            width: 45%;
+            padding-right: 10px;
+            white-space: nowrap;
+   }
+
+    .budget-td:before {
+        position: absolute;
+        top: 6px;
+        left: 6px;
+        width: 45%;
+        padding-right: 10px;
+        white-space: nowrap;
+    }
+
+        .budget-td:nth-of-type(1):before {
+            content: "ID";
+        }
+
+        .budget-td:nth-of-type(2):before {
+            content: "Expense";
+        }
+
+        .budget-td:nth-of-type(3):before {
+            content: "Place";
+        }
+
+        .budget-td:nth-of-type(4):before {
+            content: "Cost";
+        }
+
+        .budget-td:nth-of-type(5):before {
+            content: "Day";
+        }
+        .budget-action-td:nth-of-type(1):before{
+            content: "Action"
+        }
+    }
+
+.name-link{
+    color: black;
+    font-size: x-large;
+}
+
+.month-link{
+    color: black;
+}
+
+.header-link {
+    color: white;
+}
+
+.name-link:hover {
+    text-decoration: none;
+    color: #009900;
+    transform: scale(1.15);
+}
+
+.month-link:hover {
+    text-decoration: none;
+    color: #009900;
+    transform: scale(1.3);
+}
+
+.header-link:hover {
+    color: white;
+    transform: scale(1.2);
+}
+
+.expense-button {
+    -webkit-animation: fadein 2s; /* Safari, Chrome and Opera > 12.1 */
+    -moz-animation: fadein 2s; /* Firefox < 16 */
+    -ms-animation: fadein 2s; /* Internet Explorer */
+    -o-animation: fadein 2s; /* Opera < 12.1 */
+    animation: fadein 2s;
+}
+
+.create-expense {
+    padding-top: 75px;
+    -webkit-animation: fadein 2s; /* Safari, Chrome and Opera > 12.1 */
+    -moz-animation: fadein 2s; /* Firefox < 16 */
+    -ms-animation: fadein 2s; /* Internet Explorer */
+    -o-animation: fadein 2s; /* Opera < 12.1 */
+    animation: fadein 2s;
+}
+
+.create-person {
+    padding-top: 75px;
+    -webkit-animation: fadein 2s; /* Safari, Chrome and Opera > 12.1 */
+    -moz-animation: fadein 2s; /* Firefox < 16 */
+    -ms-animation: fadein 2s; /* Internet Explorer */
+    -o-animation: fadein 2s; /* Opera < 12.1 */
+    animation: fadein 2s;
+}
+
+.create-link {
+    padding-top: 75px;
+    -webkit-animation: fadein 2s; /* Safari, Chrome and Opera > 12.1 */
+    -moz-animation: fadein 2s; /* Firefox < 16 */
+    -ms-animation: fadein 2s; /* Internet Explorer */
+    -o-animation: fadein 2s; /* Opera < 12.1 */
+    animation: fadein 2s;
+}
+
+.create-image {
+    padding-top: 75px;
+    -webkit-animation: fadein 2s; /* Safari, Chrome and Opera > 12.1 */
+    -moz-animation: fadein 2s; /* Firefox < 16 */
+    -ms-animation: fadein 2s; /* Internet Explorer */
+    -o-animation: fadein 2s; /* Opera < 12.1 */
+    animation: fadein 2s;
+}
+
+.choose-image {
+    padding-top: 75px;
+    -webkit-animation: fadein 2s; /* Safari, Chrome and Opera > 12.1 */
+    -moz-animation: fadein 2s; /* Firefox < 16 */
+    -ms-animation: fadein 2s; /* Internet Explorer */
+    -o-animation: fadein 2s; /* Opera < 12.1 */
+    animation: fadein 2s;
+}
+
+.expense-form {
+    background-color: #eee;
+    padding: 50px;
+    position: absolute;
+    left: 135%;
+    height: 700px;
+    width: 500px;
+}
+
+.link-form {
+    background-color: #eee;
+    padding: 50px;
+    position: absolute;
+    left: 135%;
+    height: 700px;
+    width: 500px;
+}
+
+.image-form {
+    background-color: #eee;
+    padding: 50px;
+    position: absolute;
+    left: 135%;
+    height: 350px;
+    width: 500px;
+}
+
+.choose-image-form {
+    background-color: #eee;
+    padding: 50px;
+    position: absolute;
+    left: 135%;
+    height: 275px;
+    width: 500px;
+}
+
+@media (max-width: 1440px) {
+    .expense-form {
+        left: 100%;
+    }
+
+    .person-form {
+        left: 100% !important;
+    }
+
+    .allowance-form{
+        left: 100% !important;
+    }
+}
+
+    .person-form {
+        background-color: #eee;
+        padding: 50px;
+        position: absolute;
+        left: 135%;
+        height: 350px;
+        width: 550px;
+    }
+
+    .person-allowance {
+        font-size: x-large;
+    }
+
+    .create-allowance {
+        padding-top: 75px;
+        -webkit-animation: fadein 2s; /* Safari, Chrome and Opera > 12.1 */
+        -moz-animation: fadein 2s; /* Firefox < 16 */
+        -ms-animation: fadein 2s; /* Internet Explorer */
+        -o-animation: fadein 2s; /* Opera < 12.1 */
+        animation: fadein 2s;
+    }
+
+    .allowance-form {
+        background-color: #eee;
+        padding: 50px;
+        position: absolute;
+        left: 135%;
+        height: 275px;
+        width: 500px;
+    }
+
+.back-btn {
+    -webkit-animation: fadein 2s; /* Safari, Chrome and Opera > 12.1 */
+    -moz-animation: fadein 2s; /* Firefox < 16 */
+    -ms-animation: fadein 2s; /* Internet Explorer */
+    -o-animation: fadein 2s; /* Opera < 12.1 */
+    animation: fadein 2s;
+    padding-top: 40%;
+    padding-left: 10%;
+}
+
+/*Fitness Home page*/
+
+.fitness-body {
+    font-family: Comic Sans MS, cursive, sans-serif;
+    color: white;
+    margin-left: 0;
+    margin-right: 0;
+    max-width: 100%;
+    max-height: 100%;
+    background: url(../Images/Background/Fitness.jpg) no-repeat center center fixed;
+    background-size: cover;
+    -webkit-animation: fadein 2s; /* Safari, Chrome and Opera > 12.1 */
+    -moz-animation: fadein 2s; /* Firefox < 16 */
+    -ms-animation: fadein 2s; /* Internet Explorer */
+    -o-animation: fadein 2s; /* Opera < 12.1 */
+    animation: fadein 2s;
+}
+
+.fitness-home-title {
+    padding-top: 100px;
+    padding-left: 350px;
+    font-size: 120px;
+    text-align: center;
+}
+
+.fitness-home-p {
+    font-size: 35px;
+    text-align: center;
+    padding-top: 20px;
+    padding-left: 350px;
+}
+
+#fitness-home-button {
+}
+
+.fitness-home-link {
+    padding-top: 75px;
+    text-align: center;
+    padding-left: 350px;
+}
+
+@media (max-width: 1440px){
+    .fitness-home-title {
+        padding-left: 0px !important;
+    }
+
+    .fitness-home-p {
+        padding-left: 0px !important;
+    }
+
+    .fitness-home-link {
+        padding-left: 0px !important;
+        padding-top: 25px !important;
+    }
+
+    #fitness-home-button:hover {
+        transform: scale(1.1);
+    }
+
+    .fitness-select-h3 {
+        padding-left: 0px !important;
+        padding-right: 50px !important;
+        padding-bottom: 15px !important;
+    }
+
+    .fitness-select-dropdown {
+        padding-left: 0px !important;
+        padding-right: 0px !important;
+    }
+
+
+
+}
+
+#fitness-home-button:hover{
+    transform: scale(1.5);
+}
+
+.fitness-select-h3 {
+    padding-top: 150px;
+    text-align: center;
+    padding-left: 300px;
+    padding-bottom: 15px;
+}
+
+.fitness-select-dropdown {
+    text-align: center;
+    padding-left: 700px;
+}
+
+.main {
+    width: 33%;
+    float: left;
+    padding: 15px;
+}
+
+.blink_text{
+    animation: blinker 1s linear infinite;
+}
+
+.blink_img{
+    animation: blinker 2s linear infinite;
+}
+
+@keyframes blinker{
+    50%{opacity: 0;}
+}
+
+@keyframes blin{
+    50%{opacity: 0;}
+}

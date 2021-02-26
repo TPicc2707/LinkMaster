@@ -1,0 +1,20 @@
+﻿@model IEnumerable<LinkMasters.Models.Link>
+@{
+    ViewData["Title"] = "SelectAnImage";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="container-fluid2">
+    <div class="row">
+        @foreach (var item in Model)
+        {
+            <div class="handy-link">
+                <div class="thumbex3">
+                    <div class="thumbnail3">                  
+                                <a href="@Url.Action("chooseImage","Links", new { id = item.Id})"><img src="@Url.Content("~/Images/Default/Default.jpg")" /><span class="image-title">@item.Nickname</span></a>
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+</div>

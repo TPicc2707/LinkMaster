@@ -1,0 +1,43 @@
+﻿@model IEnumerable<LinkMasters.Models.Allowance>
+@{
+    ViewData["Title"] = "People";
+    Layout = "~/Views/Shared/_BudgetLayout.cshtml";
+}
+
+<div class="col-lg-9 budget-div">
+    <a style="float: right; padding-left: 30px; padding-right: 30px; text-align: center" class="btn btn-primary expense-button" asp-action="CreatePerson" asp-controller="Budgets" role="button">New Person</a>
+    <table class="budget-table">
+        <thead class="budget-head">
+            <tr class="budget-tr">
+                <th class="budget-th" colspan="8"><h1 style="text-align: center">Select a Person</h1></th>
+            </tr>
+            <tr class="budget-tr">
+                <th colspan="2" class="budget-th"><a class="header-link" asp-action="People" asp-controller="Budgets" asp-route-sortBy="0">Name</a></th>
+                <th colspan="2" class="budget-th"><a class="header-link" asp-action="People" asp-controller="Budgets" asp-route-sortBy="1">Starting Allowance</a></th>
+                <th colspan="2" class="budget-th"><a class="header-link" asp-action="People" asp-controller="Budgets" asp-route-sortBy="2">Allowance Remaining</a></th>
+                <th colspan="2" class="budget-th">Action</th>
+            </tr>
+        </thead>
+        <tbody class="budget-body">
+            @foreach (var item in Model)
+            {
+                <tr class="budget-tr">
+                    <td colspan="2" class="budget-td"><a class="name-link" asp-action="MonthlyBudget" asp-controller="Budgets" asp-route-personGuid="@item.PersonGuid">@item.Person.FullName</a></td>
+                    <td colspan="2" class="budget-td person-allowance">$@String.Format("{0:n}", item.StartingAllowance)</td>
+                    @if (item.IsAllowanceRemainingPositive == true)
+                    {
+                        <td colspan="2" class="budget-td person-allowance" style="color: #009900 ">+ $@String.Format("{0:n}", item.AllowanceRemaining)</td>
+
+                    }
+                    else
+                    {
+                        <td colspan="2" class="budget-td person-allowance" style="color: #ff0000 ">- $@String.Format("{0:n}", item.AllowanceRemaining)</td>
+                    }
+                        <td colspan="2" class="budget-td">
+                            <a style="padding-left: 30px; padding-right: 30px; text-align: center" class="btn btn-primary expense-button" asp-action="DeletePerson" asp-controller="Budgets" asp-route-personGuid="@item.PersonGuid" role="button">Delete</a>
+                        </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>

@@ -1,0 +1,25 @@
+﻿@model IEnumerable<LinkMasters.Models.SpongebobCharacter>
+@{
+    ViewData["Title"] = "Home";
+    Layout = "~/Views/Shared/_SpongebobLayout.cshtml";
+}
+
+<div class="container-spongebob" style="padding-left: 450px">
+    <div class="row">
+        @foreach (var item in Model)
+        {
+            <div class="col-md-3">
+                <img src="@Url.Content(item.Image_Url)" style="width: 100%; padding-top: 50px;" />
+            </div>
+         }
+   </div>
+    <div class="row">
+        @foreach (var item in Model)
+        {
+            <div class="col-md-3" style="padding-top: 10px; padding-left: 50px">
+                <a href="@Url.Action("Quotes", "SpongebobFanatics", new { characterId = item.Id})" class="btn btn-success">Quotes</a>
+                <a href="@Url.Action("Memes", "SpongebobFanatics")" class="btn btn-success">Memes</a>
+            </div>
+        }
+    </div>
+</div>

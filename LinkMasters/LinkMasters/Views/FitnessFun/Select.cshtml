@@ -1,0 +1,17 @@
+﻿@model LinkMasters.Models.MuscleGroup
+@{
+    ViewData["Title"] = "Select";
+    Layout = "~/Views/Shared/_FitnessFunLayout.cshtml";
+}
+
+
+
+<div>
+    <h4 class="fitness-select-h3">Please Select a Muscle Group</h4> 
+</div>
+<div class="fitness-select-dropdown">
+    <form asp-action="Select">
+        <select asp-for="Id" style="width: 300px; height: 40px;" class="form-control" asp-items="ViewBag.MuscleGroups"></select>
+        <a id="fitness-home-button" style="padding: 8px 30px" class="btn btn-success" asp-action="SetGoals" asp-controller="FitnessFun">Go</a>
+    </form>
+</div>

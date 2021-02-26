@@ -1,0 +1,80 @@
+﻿@model IEnumerable<LinkMasters.Models.YearBudget>
+@{
+    ViewData["Title"] = "YearBudget";
+    Layout = "~/Views/Shared/_BudgetLayout.cshtml";
+}
+
+<div class="col-lg-9 budget-div">
+    <table class="budget-table">
+        <thead class="budget-head">
+            <tr class="budget-tr">
+                <th class="budget-th" colspan="10"><h1 style="text-align: center">@ViewBag.Year</h1></th>
+            </tr>
+            @*<tr class="budget-tr">
+                <th style="background: #eee" colspan="10"><h5 style="font-weight: bold;">Starting Allowance: $@String.Format("{0:n}", ViewBag.StartingAllowance)</h5></th>
+            </tr>
+            <tr class="budget-tr">
+                @if (ViewBag.AllowancePositive == true)
+                {
+                    <th style="background: #eee" colspan="10"><h5 style="color: #009900; font-weight: bold;">Allowance Remaining: + $@String.Format("{0:n}", ViewBag.Allowance)</h5></th>
+
+                }
+                else
+                {
+                    <th style="background: #eee" colspan="10"><h5 style="color: #ff0000; font-weight: bold;">Allowance Remaining: - $@String.Format("{0:n}", ViewBag.Allowance)</h5></th>
+
+                }
+            </tr>*@
+            <tr class="budget-tr">
+                <th colspan="2" class="budget-th">Month</th>
+                <th colspan="2" class="budget-th">Month Allowance</th>
+                <th colspan="2" class="budget-th">Allowance Leftover</th>
+                <th colspan="2" class="budget-th">Allowance Spent</th>
+            </tr>
+        </thead>
+        <tbody class="budget-body">
+            @foreach (var item in Model)
+            {
+                <tr class="budget-tr">
+                    <td colspan="2" class="budget-td"><a class="month-link" asp-action="SpecificMonthBudget" asp-controller="Budgets" asp-route-calendarMonth="@item.Calendar.MonthNumber" asp-route-personGuid="@item.PersonGuid">@item.Calendar.Month</a></td>
+                    <td colspan="2" class="budget-td">$@String.Format("{0:n}", @item.StartedAllowance)</td>
+                    @if (item.PositiveAllowance == true)
+                    {
+                        <td colspan="2" class="budget-td" style="color: #009900;">+ $@String.Format("{0:n}", item.AllowanceLeft)</td>
+
+                    }
+                    else
+                    {
+                        <td colspan="2" class="budget-td" style="color: #ff0000;">- $@String.Format("{0:n}", item.AllowanceLeft)</td>
+
+                    }
+                    @if (item.AllowanceSpent < item.StartedAllowance)
+                    {
+                        <td colspan="2" class="budget-td" style="color: #009900;">$@String.Format("{0:n}", item.AllowanceSpent)</td>
+
+                    }
+                    else
+                    {
+                        <td colspan="2" class="budget-td" style="color: #ff0000;">$@String.Format("{0:n}", item.AllowanceSpent)</td>
+
+                    }
+                </tr>
+            }
+            <tr class="budget-tr">
+                <th colspan="2" style="padding: 15px"class="budget-th"></th>
+                <th colspan="2" class="budget-th"></th>
+                <th colspan="2" class="budget-th"></th>
+                <th colspan="2" class="budget-th"></th>
+            </tr>
+            <tr class="budget-tr">
+                <td colspan="2" class="budget-td"><a class="month-link" asp-action="AllMonthsBudget" asp-controller="Budgets" asp-route-personGuid="@ViewBag.PersonGuid" asp-route-year="@ViewBag.Year">Totals</a></td>
+                <td colspan="2" class="budget-td">$@String.Format("{0:n}", ViewBag.TotalSpendingAllowance)</td>
+                <td colspan="2" class="budget-td">$@String.Format("{0:n}", ViewBag.TotalAllowanceLeft)</td>
+                <td colspan="2" class="budget-td">$@String.Format("{0:n}", ViewBag.TotalAllowanceSpent)</td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+<div class="back-btn">
+    <a style="padding-left: 30px; padding-right: 30px; text-align: center;" class="btn btn-primary" asp-action="MonthlyBudget" asp-controller="Budgets" asp-route-personGuid="@ViewBag.PersonGuid" role="button">Back</a>
+</div>

@@ -1,0 +1,58 @@
+﻿@model LinkMasters.Models.Link
+@{
+    ViewData["Title"] = "ChooseImage";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="row">
+    <div class="col-md-4 choose-image">
+        <form asp-action="Choose Image" class="choose-image-form">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div style="text-align: center;"><h3>@ViewBag.LinkTitle</h3></div>
+
+            <div class="form-group">
+                <label class="control-label">Select Image for Link</label>
+                <select asp-for="ImageId" class="form-control" asp-items="ViewBag.Images" id="images"></select>
+            </div>
+            @*<div class="form-group">
+                    <label asp-for="Nickname" class="control-label"></label>
+                    <input asp-for="Nickname" class="form-control" id="nickname" />
+                    <span asp-validation-for="Nickname" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Url" class="control-label"></label>
+                    <input asp-for="Url" class="form-control" id="url" />
+                    <span asp-validation-for="Url" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="FilePath" class="control-label"></label>
+                    <input type="file" asp-for="FilePath" class="form-control" id="filepath" disabled="disabled" />
+                    <span asp-validation-for="FilePath" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label class="control-label">Application</label>
+                    <select asp-for="ApplicationId" class="form-control" asp-items="ViewBag.Applications" id="applications"></select>
+
+                </div>*@
+            @*<div class="form-group">
+                    <label asp-for="Allowance" class="control-label"></label>
+                    <input asp-for="Allowance" class="form-control" />
+                    <span asp-validation-for="Allowance" class="text-danger"></span>
+                </div>*@
+            @*<div class="form-group">
+                    <label asp-for="DayOfMonth" class="control-label"></label>
+                    <input asp-for="DayOfMonth" class="form-control" />
+                    <span asp-validation-for="DayOfMonth" class="text-danger"></span>
+                </div>*@
+            @*<div class="form-group">
+                    <label class="control-label">Month</label>
+                    <select id="month-dd" disabled="disabled" asp-for="CalendarId" class="form-control" asp-items="ViewBag.CalendarId"></select>
+                </div>*@
+
+            <div class="form-group" style="padding-top: 20px;">
+                <input type="submit" value="Select Image" class="btn btn-primary" id="create-link" /> <a class="btn btn-primary" style="float: right;" asp-action="SelectAnImage" asp-controller="Links">Cancel</a>
+            </div>
+        </form>
+    </div>
+</div>
+

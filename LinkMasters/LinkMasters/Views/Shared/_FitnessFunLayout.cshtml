@@ -1,0 +1,110 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Fitness Fun</title>
+    <link real="icon" type="image/x-icon" href="~/favicon1.ico" />
+    <environment include="Development">
+        <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.css" />
+        <link rel="stylesheet" href="~/lib/jqueryui/jquery-ui.css" />
+        <link rel="stylesheet" href="~/lib/jqueryui/jquery-ui.structure.css" />
+        <link rel="stylesheet" href="~/lib/jqueryui/jquery-ui.theme.css" />
+        <link rel="stylesheet" href="~/lib/jqueryui/themes/base/accordion.css" />
+        <link rel="stylesheet" href="~/lib/jqueryui/themes/base/resizable.css" />
+        <link rel="stylesheet" href="~/lib/jqueryui/themes/base/selectable.css" />
+        <link rel="stylesheet" href="~/lib/jqueryui/themes/base/autocomplete.css" />
+        <link rel="stylesheet" href="~/lib/jqueryui/themes/base/button.css" />
+        <link rel="stylesheet" href="~/lib/jqueryui/themes/base/dialog.css" />
+        <link rel="stylesheet" href="~/lib/jqueryui/themes/base/slider.css" />
+        <link rel="stylesheet" href="~/lib/jqueryui/themes/base/tabs.css" />
+        <link rel="stylesheet" href="~/lib/jqueryui/themes/base/datepicker.css" />
+        <link rel="stylesheet" href="~/lib/jqueryui/themes/base/progressbar.css" />
+    </environment>
+    <environment exclude="Development">
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+              asp-fallback-href="~/lib/bootstrap/dist/css/bootstrap.min.css"
+              asp-fallback-test-class="sr-only" asp-fallback-test-property="position" asp-fallback-test-value="absolute"
+              crossorigin="anonymous"
+              integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" />
+    </environment>
+    <link rel="stylesheet" href="~/css/site.css" />
+</head>
+<body class="fitness-body">
+    <header>
+        <nav class="navbar navbar-expand-sm navbar-light">
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo03" aria-controls="navbarTogglerDemo03" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarTogglerDemo03">
+                <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+                    <li class="nav-item">
+                        <h5><a class="nav-link" asp-action="Index" asp-controller="Home">Return to Link Master <span class="sr-only">(current)</span></a></h5>
+                    </li>
+                    @*<li class="nav-item dropdown dmenu">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">JROTC</a>
+                        <div class="dropdown-menu sm-menu">
+                            <a class="dropdown-item" asp-action="JROTC" asp-controller="Links">All</a>
+                            <a class="dropdown-item" asp-action="SpecificLinks" asp-controller="Links" asp-route-applicationId="1">JQUIP</a>
+                            <a class="dropdown-item" asp-action="SpecificLinks" asp-controller="Links" asp-route-applicationId="2">JCIMS</a>
+                            <a class="dropdown-item" asp-action="SpecificLinks" asp-controller="Links" asp-route-applicationId="3">JUMS</a>
+                        </div>
+                    </li>
+                    <li class="nav-item dropdown dmenu">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">Handy Links</a>
+                        <div class="dropdown-menu sm-menu">
+                            <a class="dropdown-item" asp-action="HandyLinks" asp-controller="Links" asp-route-applicationId="6">Web Applications</a>
+                            <a class="dropdown-item" asp-action="HandyLinks" asp-controller="Links" asp-route-applicationId="7">Files</a>
+                            <a class="dropdown-item" asp-action="HandyLinks" asp-controller="Links" asp-route-applicationId="8">Programs</a>
+                            <a class="dropdown-item" asp-action="HandyLinks" asp-controller="Links" asp-route-applicationId="9">Web</a>
+                        </div>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" asp-action="HandyLinks" asp-controller="Links" asp-route-applicationId="11">Other Apps</a>
+                    </li>
+                    <li class="nav-item dropdown dmenu">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">Modify</a>
+                        <div class="dropdown-menu sm-menu">
+                            <a class="dropdown-item" asp-action="CreateLink" asp-controller="Links">Create Link</a>
+                            <a class="dropdown-item" asp-action="SelectAnImage" asp-controller="Links">Link Images</a>
+                            <a class="dropdown-item" asp-action="CreateImage" asp-controller="Links">Add Image</a>
+                        </div>
+                    </li>*@
+                </ul>
+            </div>
+        </nav>
+    </header>
+    <div class="container" style="margin-left: 0; margin-right: 0; max-width: 1450px">
+        <partial name="_CookieConsentPartial" />
+        <main role="main" class="pb-3">
+            @RenderBody()
+        </main>
+    </div>
+    <br />
+    <br />
+
+    <environment include="Development">
+        <script src="~/lib/jquery/dist/jquery.js"></script>
+        <script src="~/lib/jqueryui/jquery-ui.js"></script>
+        <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.js"></script>
+    </environment>
+    <environment exclude="Development">
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"
+                asp-fallback-src="~/lib/jquery/dist/jquery.min.js"
+                asp-fallback-test="window.jQuery"
+                crossorigin="anonymous"
+                integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=">
+        </script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.bundle.min.js"
+                asp-fallback-src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"
+                asp-fallback-test="window.jQuery && window.jQuery.fn && window.jQuery.fn.modal"
+                crossorigin="anonymous"
+                integrity="sha384-xrRywqdh3PHs8keKZN+8zzc5TX0GRTLCcmivcbNJWm2rs5C8PRhcEn3czEjhAO9o">
+        </script>
+    </environment>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+
+    @RenderSection("Scripts", required: false)
+</body>
+</html>

@@ -1,0 +1,25 @@
+﻿
+@{
+    ViewData["Title"] = "Leave";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<audio id="audio">
+    <source src="~/Audio/Fart.mp3" type="audio/mpeg" />
+</audio>
+<div class="wrapper">
+    <span class="blink_img"><img src="~/Images/Home/fingerwag.gif" style="width: 1903px; " /></span>
+</div>
+
+
+@section Scripts{ 
+    <script>
+        $(document).ready(function () {
+            $(".container").css("padding-right", "0px");
+            $(".container").css("padding-left", "0px");
+
+            var myAudio = document.getElementById("audio");
+            myAudio.loop = true;
+            myAudio.play();
+        })
+    </script>
+}

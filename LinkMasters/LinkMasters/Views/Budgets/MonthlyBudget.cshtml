@@ -1,0 +1,91 @@
+﻿@model IEnumerable<LinkMasters.Models.Budget>
+@{
+    ViewData["Title"] = "Monthly Budget";
+    Layout = "~/Views/Shared/_BudgetLayout.cshtml";
+}
+
+<div class="col-lg-9 budget-div">
+    <a style="float: right; padding-left: 30px; padding-right: 30px; text-align: center;" class="btn btn-primary expense-button" asp-action="CreateExpense" asp-controller="Budgets" asp-route-personGuid="@ViewBag.PersonGuid" role="button">New Expense</a>
+    <table class="budget-table">
+        <thead class="budget-head">
+            <tr class="budget-tr">
+                <th class="budget-th" colspan="10"><h1 style="text-align: center">@ViewBag.Month @ViewBag.Year</h1></th>
+            </tr>
+            <tr class="budget-tr">
+                <th style="background: #eee" colspan="10"><h5 style="font-weight: bold;">Starting Allowance: $@String.Format("{0:n}", ViewBag.StartingAllowance)</h5></th>
+            </tr>
+            <tr class="budget-tr">
+                @if (ViewBag.AllowancePositive == true)
+                {
+                    <th style="background: #eee" colspan="10"><h5 style="color: #009900; font-weight: bold;">Allowance Remaining: + $@String.Format("{0:n}", ViewBag.Allowance)</h5></th>
+
+                }
+                else
+                {
+                    <th style="background: #eee" colspan="10"><h5 style="color: #ff0000; font-weight: bold;">Allowance Remaining: - $@String.Format("{0:n}", ViewBag.Allowance)</h5></th>
+
+                }
+            </tr>
+            <tr class="budget-tr">
+                <th style="background: #eee" colspan="10"><a style="padding-left: 30px; padding-right: 30px; text-align: center;" class="btn btn-primary expense-button" asp-action="YearBudget" asp-controller="Budgets" asp-route-personGuid="@ViewBag.PersonGuid" role="button">View Year Budget</a></th>
+            </tr>
+            <tr class="budget-tr">
+                <th colspan="2" class="budget-th">Expense</th>
+                <th colspan="2" class="budget-th">Place</th>
+                <th colspan="2" class="budget-th">Cost</th>
+                <th colspan="2" class="budget-th">Day</th>
+                <th colspan="2" class="budget-th">Action</th>
+            </tr>
+        </thead>
+        <tbody class="budget-body">
+            @foreach (var item in Model)
+            {
+                <tr class="budget-tr">
+                    <td colspan="2" class="budget-td">@item.Expense</td>
+                    <td colspan="2" class="budget-td">@item.Place</td>
+                    <td colspan="2" class="budget-td">$@String.Format("{0:n}", item.Cost)</td>
+                    <td colspan="2" class="budget-td">@item.Day.DayOfMonth</td>
+                    <td colspan="2" class="budget-action-td">
+                        <a style="padding-left: 30px; padding-right: 30px; text-align: center;" class="btn btn-primary expense-button" asp-action="DeleteExpense" asp-controller="Budgets" asp-route-budgetGuid="@item.Guid" role="button">Delete</a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
+<div class="back-btn">
+    <a style="padding-left: 30px; padding-right: 30px; text-align: center;" class="btn btn-primary" asp-action="People" asp-controller="Budgets" role="button">Back</a>
+</div>
+@section Scripts{
+    <script>
+        $(document).ready(function () {
+            var date = new Date();
+            var thisMonth = date.getMonth() + 1;
+            if (@ViewBag.UpdateAllowance == thisMonth) {
+                var self = this;
+                var dlg = $('<div title="Update Your Allowance">'
+                    + 'Its a new month! Please update your starting allowance for this month.'
+                    +'</div>'
+                ).dialog({
+                    open: function (event, ui) {
+                        $(".ui-dialog-titlebar-close", ui.dialog | ui).hide();
+                    },
+                    close: function () {
+                        $(self).remove();
+                    },
+                    closeOnEscape: false,
+                    resizable: false,
+                    height: 180,
+                    width: 480,
+                    modal: true,
+                    buttons: {
+                        'Ok': function () {
+                            dlg.dialog('close');
+                            window.location.href('@Url.Action("UpdateAllowance", "Budgets")' + '?personGuid=' + '@ViewBag.PersonGuid');
+                        },
+                    }
+                });
+            }
+        });
+    </script>
+}

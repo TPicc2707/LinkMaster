@@ -1,0 +1,40 @@
+﻿@model LinkMasters.Models.Allowance
+@{
+    ViewData["Title"] = "CreateAllowance";
+    Layout = "~/Views/Shared/_BudgetLayout.cshtml";
+}
+
+<div class="row">
+    <div class="col-md-4 create-allowance">
+        <form asp-action="Create Allowance" class="allowance-form">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div style="text-align: center;"><h3>Create a Allowance</h3></div>
+
+            <div class="form-group">
+                <label asp-for="StartingAllowance" class="control-label"></label>
+                <input asp-for="StartingAllowance" class="form-control" id="startingAllowance" />
+                <span asp-validation-for="StartingAllowance" class="text-danger"></span>
+            </div>
+            <div class="form-group" style="padding-top: 20px;">
+                <input type="submit" value="Create Allowance" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+@section Scripts{ 
+    <script>
+        $(document).ready(function () {
+            $(".nav-link").attr("disabled", "disabled");
+        })
+
+        $("#startingAllowance").on("keypress keyup blur", function (event) {
+            //this.value = this.value.replace(/[^0-9\.]/g,'');
+            $(this).val($(this).val().replace(/[^0-9\.]/g, ''));
+            if ((event.which != 46 || $(this).val().indexOf('.') != -1) && (event.which < 48 || event.which > 57)) {
+                event.preventDefault();
+            }
+        });
+    </script>
+}
+

@@ -1,0 +1,58 @@
+﻿@model  IEnumerable<LinkMasters.Models.Link>
+@{
+    ViewData["Title"] = "SelectHandyLink";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+
+<div class="container-fluid1">
+    <div class="row">
+        @foreach (var item in Model)
+        {
+            if (item.Nickname == "Web Applications" || item.Nickname == "Files")
+            {
+                <div class="specific-link">
+                    <div class="thumbex2">
+                        <div class="thumbnail2">
+                            @if (item.ImageId != null)
+                            {
+                                    <a href="@item.Url"><img src="@Url.Content(item.Image.ImagePath)" /><span class="image-title">@item.Nickname</span></a>
+
+                            }
+                            else
+                            {
+                                <a href="@item.Url"><img src="@Url.Content("~/Images/Default/Default.jpg")" /><span class="image-title">@item.Nickname</span></a>
+
+                            }
+                        </div>
+                    </div>
+                </div>
+            }
+        }
+    </div>
+    <div class="row">
+        @foreach (var item in Model)
+        {
+            if (item.Nickname == "Programs" || item.Nickname == "Web")
+            {
+                <div class="specific-link">
+                    <div class="thumbex2">
+                        <div class="thumbnail2">
+                            @if (item.ImageId != null)
+                            {
+                                <a href="@item.Url"><img src="@Url.Content(item.Image.ImagePath)" /><span class="image-title">@item.Nickname</span></a>
+
+                            }
+                            else
+                            {
+                                <a href="@item.Url"><img src="@Url.Content("~/Images/Default/Default.jpg")" /><span class="image-title">@item.Nickname</span></a>
+
+                            }
+                        </div>
+                    </div>
+                </div>
+            }
+        }
+    </div>
+</div>

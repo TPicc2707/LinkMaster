@@ -1,0 +1,17 @@
+﻿@model SpongebobQuotes
+@{
+    ViewData["Title"] = "Quotes";
+    Layout = "~/Views/Shared/_SpongebobLayout.cshtml";
+}
+<div class="container">
+    <div class="row">
+        <div class="col-md-12">
+            <h1 style="text-align: center; padding-top: 100px; padding-left: 500px; color: white; font-size: 100px;">@Model.Quote</h1>
+            <h1 style="text-align: center; padding-top: 100px; padding-left: 500px; color: white;">@Model.Episode_Number</h1>
+            </div>
+            <div class="col-md-12" style="padding-top: 100px; padding-left: 750px;">
+            <a href="@Url.Action("Quotes", "SpongebobFanatics", new { characterId = Model.SpongebobCharacter.Id})" class="btn btn-success">Another quote</a>
+           </div>
+    </div>
+</div>
+

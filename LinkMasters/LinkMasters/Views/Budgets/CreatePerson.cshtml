@@ -1,0 +1,59 @@
+﻿@model LinkMasters.Models.Allowance
+@{
+    ViewData["Title"] = "CreatePerson";
+    Layout = "~/Views/Shared/_BudgetLayout.cshtml";
+}
+
+<div class="row">
+    <div class="col-md-4 create-person">
+        <form asp-action="Create Person" class="person-form">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div style="text-align: center;"><h3>New Person</h3></div>
+            <div class="form-group">
+                <label asp-for="Person.FirstName" class="control-label"></label>
+                <input asp-for="Person.FirstName" id="firstName" class="form-control" />
+                <span asp-validation-for="Person.FirstName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Person.LastName" class="control-label"></label>
+                <input asp-for="Person.LastName" id="lastName" class="form-control" />
+                <span asp-validation-for="Person.LastName" class="text-danger"></span>
+            </div>
+            @*<div class="form-group">
+                    <label asp-for="Allowance" class="control-label"></label>
+                    <input asp-for="Allowance" class="form-control" />
+                    <span asp-validation-for="Allowance" class="text-danger"></span>
+                </div>*@
+            @*<div class="form-group">
+                    <label asp-for="DayOfMonth" class="control-label"></label>
+                    <input asp-for="DayOfMonth" class="form-control" />
+                    <span asp-validation-for="DayOfMonth" class="text-danger"></span>
+                </div>*@
+            <div class="form-group" style="padding-top: 20px;">
+                <input type="submit" value="Create Person" class="btn btn-primary" id="create-person"/> <a class="btn btn-primary" style="float: right;" asp-action="People">Cancel</a>
+            </div>
+        </form>
+    </div>
+</div>
+
+@section Scripts{ 
+    <script>
+        $("#firstName").keydown(function (e) {
+            var key = e.keyCode;
+            if (!((key <= 9) || (key == 32) || (key == 46) || (key >= 35 && key <= 40) || (key >= 65 && key <= 90))) {
+                e.preventDefault();
+            }
+        })
+        $("#lastName").keydown(function (e) {
+            var key = e.keyCode;
+            if (!((key <= 9) || (key == 32) || (key == 46) || (key >= 35 && key <= 40) || (key >= 65 && key <= 90))) {
+                e.preventDefault();
+            }
+        })
+        $("#create-person").click(function () {
+            if (($("#firstName").val() == "") || ($("#lastName").val() == "")) {
+                alert("Please enter a valid person");
+            }
+        })
+    </script>
+}
